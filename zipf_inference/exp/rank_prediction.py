@@ -1,5 +1,5 @@
 from zipf_inference.exp import Exp
-from zipf_inference.scorer import score_frequency, score_freq_head_rand_tail
+from zipf_inference.scorer import score_frequency, score_freq_head_rand_tail, score_frac_singleton
 from zipf_inference.dataset import NL_DESC
 from zipf_inference.models import (
     NullModel, PreComputedEmbsModel, TokenBasedModel, CodeBERT, CuBERT
@@ -277,9 +277,6 @@ if __name__=='__main__':
     null = NullModel(
         device=device,
         exp=exp)
-    null.set_scorer(
-        name='frac_singleton',
-        scorer_func=score_frac_singleton)
     null.set_scorer(
         name='freq',
         scorer_func=score_frequency)

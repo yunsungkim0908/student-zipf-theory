@@ -13,7 +13,7 @@ def get_hybrid_scores(sampled_resps, ordered_idxs, ordered_scores):
     head_idxs, body_idxs = unique_idxs[head_loc], unique_idxs[~head_loc]
     head_sorting_idx = np.argsort(head_scores)[::-1]
     head_ordered_idxs = head_idxs[head_sorting_idx]
-    head_ordered_scores = head_scores[head_sorting_idx].astype(np.float)
+    head_ordered_scores = head_scores[head_sorting_idx].astype(float)
 
     body_loc_idxs = np.isin(ordered_idxs, body_idxs)
 
@@ -82,7 +82,7 @@ def score_freq_head_rand_tail(sampled_resps):
 
         head_sorting_idx = np.argsort(head_scores)[::-1]
         head_ordered_idxs = head_idxs[head_sorting_idx]
-        head_ordered_scores = head_scores[head_sorting_idx].astype(np.float)
+        head_ordered_scores = head_scores[head_sorting_idx].astype(float)
 
         tail_sorting_idx = np.random.permutation(len(tail_idxs))
         tail_ordered_idxs = tail_idxs[tail_sorting_idx]

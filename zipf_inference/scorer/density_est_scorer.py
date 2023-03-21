@@ -77,7 +77,7 @@ class DETreeScorer(DensityEstimatorScorer):
         de_tree = det(
             folds=10, input_model=None, max_leaf_size=1,
             min_leaf_size=1, path_format='lr', skip_pruning=True,
-            test=embs, training=embs, verbose=True
+            test=embs, training=embs, verbose=False
         )
         self.de_tree = de_tree
 

@@ -15,6 +15,7 @@ if __name__=='__main__':
     device = f'cuda:{args.device}'
 
     for dname, nl_desc in NL_DESC.items():
+        print(f'dname: {dname}')
         dataset = ExpDataset(dname)
 
         cubert = CuBERT(

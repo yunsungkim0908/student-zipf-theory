@@ -108,7 +108,9 @@ class PretrainedModel(BaseModel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.setup_pretrained()
+        print('converting inputs to tensors...')
         all_inputs = self.convert_all_inputs_to_tensors()
+        print('computing embeddings...')
         self.embs = self.compute_all_embeddings(all_inputs)
 
     def setup_pretrained(self):
@@ -118,5 +120,9 @@ class PretrainedModel(BaseModel):
         pass
 
     def save_embeddings(self, emb_fname):
-        emb_fname = os.path.join(MODEL_DIR, 'bin', emb_fname) + '.emb'
+        bin_dirname = os.path.join(MODEL_DIR, 'bin')
+        if not os.path.isdir(bin_dirname):
+            os.makedirs(bin_dirname)
+        emb_fname = os.path.join(bin_dirname, f'{emb_fname}.emb')
+        print(f'saving embeddings: {emb_fname}...')
         pickle.dump(self.embs, open(emb_fname, 'wb'))
