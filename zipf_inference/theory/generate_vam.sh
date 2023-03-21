@@ -15,7 +15,7 @@ do
         then
             continue
         fi
-        ./vam_test\
+        ./vam_generate\
             --num-choices ${num_choice}\
             --length 10\
             --ability-bins ${BINS}\
@@ -35,7 +35,7 @@ do
         then
             continue
         fi
-        ./vam_test\
+        ./vam_generate\
             --num-choices 5\
             --length ${length}\
             --ability-bins ${BINS}\
@@ -55,7 +55,7 @@ do
         then
             continue
         fi
-        ./vam_test\
+        ./vam_generate\
             --num-choices ${num_choice}\
             --length 10\
             --ability-bins 0\
@@ -75,7 +75,7 @@ do
         then
             continue
         fi
-        ./vam_test\
+        ./vam_generate\
             --num-choices 5\
             --length ${length}\
             --ability-bins 0\
@@ -95,7 +95,7 @@ do
         then
             continue
         fi
-        ./vam_test\
+        ./vam_generate\
             --num-choices 5\
             --length 10\
             --ability-bins ${bins}\

@@ -283,6 +283,11 @@ if __name__=='__main__':
     null.set_scorer(
         name='freq_rand',
         scorer_func=score_freq_head_rand_tail)
+    if args.scores_only:
+        null.set_scorer(
+            name='frac_singleton',
+            scorer_func=score_frac_singleton)
+
     exp.set_model('base', null)
 
     exp.initialize_models()

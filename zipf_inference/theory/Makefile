@@ -11,7 +11,7 @@ TARGETS = generate sample vam_sample vam_generate
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: generate sample
+all: generate sample vam_generate
 vam: vam_generate vam_sample
 generate: grammar.o stateful.o simple.o main_generate.o
 sample: grammar.o stateful.o main_sample.o
